@@ -6,7 +6,7 @@ while len(prime_numbers) < 5: #continuo il ciclo finchè non ho 5 elementi in pr
     if number in prime_numbers: #se è un primo già inserito non lo accetto
         print('Hai già inserito questo numero primo')
     else:
-        for div in range(2, number): #controllo se il numero è primo, check sui possibili divisori, si potrebbe diminuire il numero di iterazioni
+        for div in range(2, int(number**0.5)+1): #controllo se il numero è primo, check sui possibili divisori
             if number % div == 0:
                 prime = False #se ottengo una divisione esatta allora number non è primo
         if prime == True:
