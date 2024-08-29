@@ -1,6 +1,6 @@
 num1 = float(input('inserisci il primo numero\n'))
 num2 = float(input('inserisci il secondo numero\n'))
-
+#scelta operazione
 operation = input('Scegli operazione: Addizione: +\n Sottrazione: -\n Moltiplicazione:* \n Divisione: /\n')
 
 if operation == '+':
@@ -10,7 +10,7 @@ elif operation == '-':
 elif operation == '*':
     print(num1*num2)
 elif operation == '/':
-    if num2 == 0:
+    if num2 == 0: #gestione divisione per zero
         print('Impossibile dividere per zero!')
     else:
         print(num1 / num2)
