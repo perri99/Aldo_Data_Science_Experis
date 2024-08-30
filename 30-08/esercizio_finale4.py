@@ -24,10 +24,8 @@ while True: #ciclo principale
 
         #conteggio numeri con while
         counter = 0
-        index = 0
-        while index < len(numbers_list):
+        while counter < len(numbers_list):
             counter += 1
-            index += 1
         print('Il ciclo while ha contato', counter, 'elementi')
         #check elementi con funzione len()
         print('La funzione len() restituisce', len(numbers_list))
