@@ -1,0 +1,35 @@
+Risposta OOP:
+Le tre regole fondamentali della programmazione orientata agli oggetti sono:
+1. Incapsulamento: permette al software di nascondere parti di codice che non si vogliono rendere pubbliche,
+                    è la proprietà meno in mano al programmatore;
+2. Ereditarietà: permette la creazione di classi 'figlie' ereditando le caratteristiche delle classi 'madri',
+                questo permette il riutilizzo di codice e la creazione di gerarchie tra classi, 
+                altamente controllabile dal programmatore;
+3. Polimorfismo: è la proprietà che permette agli oggetti di cambiare forma ma non comportamento oppure
+                di cambiare comportamento ma non forma
+La presenza di queste 3 regole è garantita dall'ASTRAZIONE, anche detta REGOLA MADRE, che ci permette di 
+descrivere le proprietà di un oggetto, andando ad esternare le sue caratteristiche e comportamenti principali
+
+Risposta Metodologie:
+In ambito IT sono presenti due metodologie applicative nella gestione dello sviluppo software: 
+la metodologia Waterfall e la metodologia Agile. La metodologia waterfall si basa su una rigida distinzione
+tra le fasi principali di sviluppo (concezione-ideazione-analisi-design-creazione-testing-produzione-manutenzione)
+che garantisce una dettagliata pianificazione sul lungo periodo e che richiede fin da subito un'approfondita
+documentazione su tutti gli apsetti legati al progetto: questo permette di avere fin da subito un'idea chiara
+del prodotto finale, fornendo con precisione tempistica e budget previsti. Questa metodologia si applica molto bene ai progetti che intendono replicare un prodotto
+già esistente. Le problematiche relative a questa metodologia sono legate alla poca flessibilità e alla difficoltà
+di correzzione degli errori: se si sbaglia in una fase bisogna ricominciare dalla fase iniziale. Inoltre è 
+molto suscettibile all'emergenza di problemi nelle fasi finali del progetto che potrebbero ritardare la consegna
+con sovraccosti per azienda e cliente. La metodologia Agile al contrario non si basa su una schematizzazione rigida, 
+al centro di questo metodo c'è il coinvolgimento del cliente, con continue consegne di versioni provvisorie
+del prodotto per avere un feedback continuo. Permette una grande flessibilità e adattabilità, con un lavoro 
+iterativo che si basa su SPRINT. Per avere un Agile efficace c'è bisogno di un'alta collaborazione tra i membri
+del team e di una comunicazione il più efficacie possibile. Infatti è necessaria la costruzione di una conoscenza
+condivisa per no perdere di vista lo scope comune. Questo non sempre è facile nei team di grandi dimensioni
+e tale metodologia rischia di esserev dispersiva. Al contrario della waterfall è più imprevedebile per quanto 
+riguarda il tempo di esecuzione e nella stima del budget. Nella pratica lavorativa una grossa differenza tra
+queste due metodologie sta nel numero di task assegnate: nella waterfall avremo un grande numero di task,
+perchè tutto è pianificato nel minimo dettaglio; nell'agile avremo un numero minore di task perchè si 
+prevede un tempo maggiore per task per questioni legate a comprensioni, comunicazione e feedback. Dal lato del 
+cliente la metodologia agile garantisce un'alta soddisfazione, a patto di essere disponibili a continui
+confronti con il team di sviluppo.
