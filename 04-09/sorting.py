@@ -20,10 +20,19 @@ def sorting(numbers_list):
         copy_list.remove(minimum(copy_list))
     return sorted_list
 
-numbers_list = [3, 7, 5, 10, 1]
+def median(numbers_list):
+    sorted_list = sorting(numbers_list)
+    if len(sorted_list) % 2 != 0:
+        return sorted_list[int(len(numbers_list) / 2) ]
+    else:
+        return (sorted_list[int(len(numbers_list) / 2 )-1] + sorted_list[int(len(numbers_list) / 2)]) / 2
+
+numbers_list = [3, 7, 5, 10, 1, 4]
 sorted_list = sorting(numbers_list)
 print(sorted_list)
 min = minimum(numbers_list)
 max = maximum(numbers_list)
+mediana = median(numbers_list)
 print(min)
 print(max)
+print(mediana)
