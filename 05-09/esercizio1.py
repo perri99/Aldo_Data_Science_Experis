@@ -8,12 +8,12 @@ vocali = ['a', 'e', 'i', 'o', 'u']
 vocali_nella_frase = []
 frase = input('Inserisci un frase: \n')
 
-
+index = 0
 for element in frase:
     if element in vocali:
-        print('Vocale', element, ' in posizione', frase.index(element))
+        print('Vocale', element, ' in posizione', index)
         vocali_nella_frase.append(element)
-        frase = frase.replace(element,'')
+        index += 1
 
 print('Lista di vocali nella frase')
 print(vocali_nella_frase)
