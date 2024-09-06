@@ -6,7 +6,7 @@ def check_number(num1, num2):
     else:
         return False
 
-random_number = random.randint(0, 100)
+random_number = random.randint(1, 100)
 stop = False
 while stop != True :
     inserted_number = input('Indovina il numero o premi q per uscire: ')
