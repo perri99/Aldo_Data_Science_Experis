@@ -17,6 +17,8 @@ def d_check_string(function):
 
 @d_check_string
 def comprimi_stringa(stringa):
+    if len(stringa) == 0:
+        return stringa
     result = []
     count = 1
     compressed = False
