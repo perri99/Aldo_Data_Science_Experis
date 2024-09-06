@@ -9,6 +9,8 @@ def d_check_string(function):
         stringa_compressa = function(stringa)
         if stringa_compressa == stringa:
             print('La stringa non è stata compressa')
+        elif stringa_compressa is None:
+            print('Non hai inserito stringa alfabetica')
         else:
             print('La stringa compressa è', stringa_compressa)
             print('La stringa originaria è ', stringa)
@@ -19,6 +21,8 @@ def d_check_string(function):
 def comprimi_stringa(stringa):
     if len(stringa) == 0:
         return stringa
+    if stringa.isalpha() == False:
+        return None
     result = []
     count = 1
     compressed = False
@@ -36,7 +40,7 @@ def comprimi_stringa(stringa):
     else:
         return stringa
 
-string_test = 'abc'
+string_test = 'abBBBc'
 compressed_string = comprimi_stringa(string_test)
 
 
