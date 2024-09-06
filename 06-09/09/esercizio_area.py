@@ -29,6 +29,7 @@ def triangolo():
 def rettangolo():
     base, altezza = base_altezza()
     area = area_rettangolo(base, altezza)
+    return area
 
 area_lists = []
 while True:
