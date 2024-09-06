@@ -4,6 +4,10 @@ def check_number(num1, num2):
     if num1 == num2:
         return True
     else:
+        if num1 > num2:
+            print('Inserire numero più alto')
+        else:
+            print('inserire numero più basso')
         return False
 
 random_number = random.randint(1, 100)
