@@ -21,11 +21,11 @@ def d_check_string(function):
 def comprimi_stringa(stringa):
     if len(stringa) == 0:
         return stringa
-<<<<<<< HEAD
+
     if stringa.isalpha() == False:
         return None
-=======
->>>>>>> 77028b2e30818d8b256aabe1c1169eba6240487f
+
+
     result = []
     count = 1
     compressed = False
