@@ -28,8 +28,8 @@ def encoding(stringa, key):
 
 def decoding(stringa, key):
     return encoding(stringa, -key)
-
-string_test = "ciao mi chiamo aldo"
+'''
+string_test = "ciao mi chiamo aldoz"
 encoded_string = encoding(string_test, 4)
 print(encoded_string)
-print(decoding(encoded_string,4))
+print(decoding(encoded_string,4))'''
