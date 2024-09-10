@@ -7,10 +7,8 @@ Esempio:
 'ciao' non è palindroma
 '''
 def clear_string(stringa):
-    disturbi = [' ', ',', '.', ';', ':', '!', '?', "'"]
-    for element in disturbi:
-        stringa = stringa.replace(element, '')
-    return stringa
+    cleared_string = ''.join([i for i in stringa if i.isalpha()])
+    return cleared_string
 
 def is_palindromo(stringa):
     if stringa.isalpha() == False: stringa = clear_string(stringa)
