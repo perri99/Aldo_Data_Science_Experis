@@ -20,12 +20,7 @@ def encoding(stringa, key):
     alphabet = range_char()
     encoded_string = ''
     for substring in substrings:
-        lista = []
-        for i in substring:
-            if alphabet.index(i) < len(alphabet)-1-key:
-                lista.append(alphabet[alphabet.index(i)+key])
-            else:
-                lista.append(alphabet[key-(len(alphabet)-alphabet.index(i))])
+        lista = [alphabet[((alphabet.index(i)+key) % 26)] for i in substring]
         substring = ''.join(lista)
         encoded_string = encoded_string + substring+' '
     
