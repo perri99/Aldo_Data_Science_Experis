@@ -28,6 +28,8 @@ def median(numbers_list):
         return (sorted_list[int(len(numbers_list) / 2 )-1] + sorted_list[int(len(numbers_list) / 2)]) / 2
 
 numbers_list = [3, 7, 5, 10, 1, 4]
+a = enumerate(numbers_list)
+print(a[0])
 sorted_list = sorting(numbers_list)
 print(sorted_list)
 min = minimum(numbers_list)
