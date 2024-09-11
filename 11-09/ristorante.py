@@ -36,17 +36,19 @@ class Ristorante:
         keys = ['Nome Piatto', 'Prezzo']
         numero_piatto = self.assegna_numero_piatto(self.menu)
         for key in keys:
-            val = input(f'Inserisci {key} ')
+            val = input(f'Inserisci {key} \n')
             piatto[key] = val
         self.menu[numero_piatto] = piatto
 
     def mostra_menu(self):
-        print(self.menu)
+        print('Codice Piatto', 'Nome Piatto', 'Prezzo')
+        for cod in self.menu:
+            print(cod, self.menu[cod]['Nome Piatto'], self.menu[cod]['Prezzo'])
 
     def elimina_piatto(self):
         try:
-            print(self.menu)
-            number = int(input('Inserisci il numero del piatto che vuoi eliminare: '))
+            self.mostra_menu()
+            number = int(input('Inserisci il codice del piatto che vuoi eliminare: '))
         except:
             print('Inserisci numero valido')
         if number <= len(self.menu)-1:
