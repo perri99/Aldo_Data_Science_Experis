@@ -40,6 +40,13 @@ class Ristorante:
             piatto[key] = val
         self.menu[numero_piatto] = piatto
 
+    def aggiungi_al_menu_inline(self, nome, prezzo):
+        piatto = {}
+        numero_piatto = self.assegna_numero_piatto(self.menu)
+        piatto['Nome Piatto'] = nome
+        piatto['Prezzo'] = str(prezzo)+' euro'
+        self.menu[numero_piatto] = piatto
+
     def mostra_menu(self):
         print('Codice', '    Nome Piatto', '    Prezzo')
         for cod in self.menu:
@@ -50,7 +57,7 @@ class Ristorante:
             self.mostra_menu()
             number = int(input('Inserisci il codice del piatto che vuoi eliminare: '))
         except:
-            print('Inserisci numero valido')
+            print('Inserisci un numero')
         if number <= len(self.menu)-1:
             del self.menu[number]
         else:
@@ -63,7 +70,8 @@ Peng.apri_ristorante()
 Peng.stato_apertura()
 Peng.chiudi_ristorante()
 Peng.stato_apertura()
-Peng.aggiungi_al_menu()
+Peng.aggiungi_al_menu_inline('Ravioli', 5)
+Peng.aggiungi_al_menu_inline('Involtini', 2)
 Peng.aggiungi_al_menu()
 Peng.mostra_menu()
 Peng.elimina_piatto()
