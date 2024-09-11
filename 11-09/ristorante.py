@@ -41,9 +41,9 @@ class Ristorante:
         self.menu[numero_piatto] = piatto
 
     def mostra_menu(self):
-        print('Codice Piatto', 'Nome Piatto', 'Prezzo')
+        print('Codice', '    Nome Piatto', '    Prezzo')
         for cod in self.menu:
-            print(cod, self.menu[cod]['Nome Piatto'], self.menu[cod]['Prezzo'])
+            print(cod,"      ", self.menu[cod]['Nome Piatto'], '          ', self.menu[cod]['Prezzo'])
 
     def elimina_piatto(self):
         try:
