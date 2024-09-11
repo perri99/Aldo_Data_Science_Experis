@@ -24,7 +24,7 @@ class Libro:
             print("Errore nella costruzione dell'oggetto")
         
 
-Ulisse = Libro('Ulisse', 'James Joyce', 'n')
+""" Ulisse = Libro('Ulisse', 'James Joyce', 'n')
 Zeno = Libro('La Coscienza di Zeno', 23, 400)
 Ulisse.descrivi_libro()
-Zeno.descrivi_libro()
+Zeno.descrivi_libro() """
