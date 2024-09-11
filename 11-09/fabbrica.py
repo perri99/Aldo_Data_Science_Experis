@@ -50,11 +50,18 @@ class Fabbrica:
         return id
 
     def aggiungi_prodotto(self, Prodotto, numero):
-        item = {}
-        codice_prodotto = self.assegna_ID()
-        item['Prodotto'] = Prodotto.restituisci_nome()
-        item['Numero'] = numero
-        self.inventario[codice_prodotto] = item
+        
+        if Prodotto.restituisci_nome() not in [self.inventario[code]['Prodotto'] for code in range(len(self.inventario)) ]:
+            item = {}
+            codice_prodotto = self.assegna_ID()
+            item['Prodotto'] = Prodotto.restituisci_nome()
+            item['Numero'] = numero
+            self.inventario[codice_prodotto] = item
+        else:
+            print('Prodotto già esistente, aggiorno il numero di elementi')
+            self.aumenta_prodotto(Prodotto, numero)
+            
+            
 
     def vendi_prodotto(self, Prodotto, quantità):
         check_vendita = False
@@ -62,11 +69,14 @@ class Fabbrica:
             if self.inventario[cod]['Prodotto'] == Prodotto.restituisci_nome():
                 check_vendita = True
                 self.inventario[cod]['Numero'] -= quantità
+                if quantità > 0:
+                    print('Vendita di', quantità,Prodotto.restituisci_nome(),'Gaudagno:', Prodotto.calcola_profitto()*quantità)
         if check_vendita == False:
-            print('Prodotto non trovato')
+            print(f'Prodotto non trovato: vendita di {Prodotto.restituisci_nome()} impossibile')
 
-    def reso_prodotto(self, Prodotto, quantità): 
-        self.vendi_prodotto(Prodotto, -quantità)   
+    def aumenta_prodotto(self, Prodotto, quantità): 
+        self.vendi_prodotto(Prodotto, -quantità)
+        print('Aggiunti', quantità, Prodotto.restituisci_nome())   
 
     def mostra_inventario(self):
         print(self.inventario)
@@ -74,11 +84,15 @@ class Fabbrica:
 
 Laptop = Elettronica('Laptop', 200, 400, '2 anni')
 Maglietta_nera = Abbigliamento('Maglietta Nera', 10, 70, 'Lino', 'Nera')
+Maglietta_bianca = Abbigliamento('Maglietta Bianca', 10, 70, 'Lino', 'Bianca')
 Aldo_SRL = Fabbrica('Aldo SRL')
 Aldo_SRL.aggiungi_prodotto(Laptop, 43)
 Aldo_SRL.aggiungi_prodotto(Maglietta_nera, 24)
-#Aldo_SRL.aggiungi_prodotto(Maglietta_nera, 2)
+Aldo_SRL.aggiungi_prodotto(Maglietta_nera, 2)
 Aldo_SRL.mostra_inventario()
 Aldo_SRL.vendi_prodotto(Maglietta_nera, 10)
 Aldo_SRL.vendi_prodotto(Laptop, 40)
+Aldo_SRL.vendi_prodotto(Maglietta_bianca, 50)
+Aldo_SRL.mostra_inventario()
+Aldo_SRL.aumenta_prodotto(Laptop, 4)
 Aldo_SRL.mostra_inventario()
