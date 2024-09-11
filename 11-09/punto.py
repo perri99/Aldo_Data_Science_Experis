@@ -5,8 +5,8 @@ class Punto:
         self.x = ascissa
         self.y = ordinata
 
-    # def stampa_punto(self):
-    #     print( "(" self.x ",", self.y, ")")
+    def stampa_punto(self):
+        print( "(", self.x, ",", self.y, ")")
 
     def muovi_punto(self, dx, dy):
         self.x += dx
@@ -18,4 +18,5 @@ class Punto:
 Punto1 = Punto(2,3)
 print("La distanza dall'origine è", Punto1.distanza_origine())
 Punto1.muovi_punto(-2, -3)
+Punto1.stampa_punto()
 print(Punto1.distanza_origine())
