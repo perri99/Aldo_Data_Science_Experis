@@ -3,7 +3,7 @@ class Ristorante:
     def __init__(self, nome, tipo_cucina):
         self.nome = nome
         self.tipo_cucina = tipo_cucina
-        self.menu = {}
+        self.menu = {0:{'Nome Piatto':'Coperto', 'Prezzo':'2.50 euro'}}
         self.aperto = False
 
     def descrivi_ristorante(self):
@@ -65,3 +65,4 @@ Peng.aggiungi_al_menu()
 Peng.aggiungi_al_menu()
 Peng.mostra_menu()
 Peng.elimina_piatto()
+Peng.mostra_menu()
