@@ -1,39 +1,32 @@
-class Elettronica:
-    def __init__(self, nome, costo_produzione, prezzo_vendita, garanzia):
+class Prodotto:
+    def __init__(self, nome, costo_produzione, prezzo_vendita):
         self.nome = nome
         self.costo_produzione = costo_produzione
         self.prezzo_vendita = prezzo_vendita
-        self.garanzia = garanzia
 
     def restituisci_nome(self):
         return self.nome
-
+    
     def calcola_profitto(self):
         return self.prezzo_vendita - self.costo_produzione
     
-class Abbigliamento:
+class Elettronica(Prodotto):
+    def __init__(self, nome, costo_produzione, prezzo_vendita, garanzia):
+        Prodotto.__init__(self, nome, costo_produzione, prezzo_vendita)
+        self.garanzia = garanzia
+
+    
+class Abbigliamento(Prodotto):
     def __init__(self, nome, costo_produzione, prezzo_vendita, materiale, colore):
-        self.nome = nome
-        self.costo_produzione = costo_produzione
-        self.prezzo_vendita = prezzo_vendita
+        Prodotto.__init__(self, nome, costo_produzione, prezzo_vendita)
         self.materiale = materiale
         self.colore = colore
 
-    def restituisci_nome(self):
-        return self.nome
     
-    def calcola_profitto(self):
-        return self.prezzo_vendita - self.costo_produzione   
-    
-class Giocattolo:
+class Giocattolo(Prodotto):
     def __init__(self, nome, costo_produzione, prezzo_vendita, eta_minima):
-        self.nome = nome
-        self.costo_produzione = costo_produzione
-        self.prezzo_vendita = prezzo_vendita
+        Prodotto.__init__(self, nome, costo_produzione, prezzo_vendita)
         self.eta_minima = eta_minima
-
-    def calcola_profitto(self):
-        return self.prezzo_vendita - self.costo_produzione
     
 class Fabbrica:
     
@@ -85,8 +78,11 @@ class Fabbrica:
 Laptop = Elettronica('Laptop', 200, 400, '2 anni')
 Maglietta_nera = Abbigliamento('Maglietta Nera', 10, 70, 'Lino', 'Nera')
 Maglietta_bianca = Abbigliamento('Maglietta Bianca', 10, 70, 'Lino', 'Bianca')
+Monopoli = Giocattolo('Monopoli',2, 20, '8 anni' )
+print(type(Monopoli))
 Aldo_SRL = Fabbrica('Aldo SRL')
 Aldo_SRL.aggiungi_prodotto(Laptop, 43)
+Aldo_SRL.aggiungi_prodotto(Monopoli, 10)
 Aldo_SRL.aggiungi_prodotto(Maglietta_nera, 24)
 Aldo_SRL.aggiungi_prodotto(Maglietta_nera, 2)
 Aldo_SRL.mostra_inventario()
