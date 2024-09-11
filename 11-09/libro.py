@@ -3,17 +3,16 @@ class Libro:
         '''
         Costruttore della classe
         '''
-        if type(titolo)== str and type(autore) == str:
+        if type(titolo) == str and type(autore) == str:
             self.titolo = titolo
             self.autore = autore
         else:    
             print('Titolo e autore devono essere stringhe')
-        try:
-                
+        try:                
             self.pagine = int(pagine)
         except:
             print('Pagine deve essere un intero')
-             
+            
     
     def descrivi_libro(self):
         '''
