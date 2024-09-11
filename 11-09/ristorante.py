@@ -11,19 +11,19 @@ class Ristorante:
 
     def stato_apertura(self):
         if self.aperto:
-            print('Il ristorante è aperto')
+            print(f'Il ristorante {self.nome} è aperto')
         else:
-            print('Il ristorante è chiuso')
+            print(f'Il ristorante {self.nome} è chiuso')
 
     def apri_ristorante(self):
         self.aperto = True
-        print('Il ristorante è stato appena aperto!')
+        print(f'Il ristorante {self.nome} è stato appena aperto!')
 
     def chiudi_ristorante(self):
         self.aperto = False
-        print('Il ristorante ora è stato appena chiuso!')
+        print(f'Il ristorante {self.nome} è stato appena chiuso!')
     
-    def assegna_numero_piatto(self, dizionario):
+    def assegna_numero_piatto(self, dizionario): #codice univoco per ogni piatto aggiunto
         ids = list(dizionario.keys())
         if len(ids) == 0:
             id = 0
@@ -70,9 +70,9 @@ Peng.apri_ristorante()
 Peng.stato_apertura()
 Peng.chiudi_ristorante()
 Peng.stato_apertura()
-Peng.aggiungi_al_menu_inline('Ravioli', 5)
+Peng.aggiungi_al_menu_inline('Ravioli', 4.50)
 Peng.aggiungi_al_menu_inline('Involtini', 2)
-Peng.aggiungi_al_menu()
+#Peng.aggiungi_al_menu()
 Peng.mostra_menu()
 Peng.elimina_piatto()
 Peng.mostra_menu()
