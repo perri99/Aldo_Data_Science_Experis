@@ -8,15 +8,18 @@ Nome: Giovanni , Media: 7.5
 Nome: Alfredo , Media: 9
 Nome: Michela, Media 10
 '''
-
-def inserisci_studente(archivio_studenti, materie):
-    studente = {}
-
+def assegna_ID(archivio_studenti):
     ids = list(archivio_studenti.keys())
     if len(ids) == 0:
         id = 0
     else:
         id = max(ids) +1 
+    return id
+
+def inserisci_studente(archivio_studenti, materie):
+    studente = {}
+
+    id = assegna_ID(archivio_studenti)
 
     nome = input('Inserisci nome: ')
     studente['Nome'] = nome
