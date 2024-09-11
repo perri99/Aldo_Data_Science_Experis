@@ -3,11 +3,10 @@ class Libro:
         '''
         Costruttore della classe
         '''
-        try:
-            if type(titolo == str) and type(autore == str):
-                self.titolo = titolo
-                self.autore = autore
-        except:
+        if type(titolo)== str and type(autore) == str:
+            self.titolo = titolo
+            self.autore = autore
+        else:    
             print('Titolo e autore devono essere stringhe')
         try:
                 
@@ -27,6 +26,6 @@ class Libro:
         
 
 Ulisse = Libro('Ulisse', 'James Joyce', 'n')
-Zeno = Libro('La Coscienza di Zeno', 3, 400)
+Zeno = Libro('La Coscienza di Zeno', 23, 400)
 Ulisse.descrivi_libro()
 Zeno.descrivi_libro()
