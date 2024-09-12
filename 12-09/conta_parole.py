@@ -12,9 +12,12 @@ def lettura_righe(file):
 
 file = '12-09/testo.txt'
 contenuto = lettura(file)
-lista_parole = contenuto.split()
+contenuto1 = contenuto.replace('\n', ' ')
+contenuto1 = contenuto.replace("'", ' ')
+lista_parole = contenuto1.split()
 lista_righe = lettura_righe(file)
 lista_caratteri = ''.join(lista_parole)
+
 print('Ho contato ', len(lista_parole), 'parole')
 print('Ho contato ', len(lista_righe), 'righe')
 print('Ho contato', len(contenuto), 'caratteri inclusi gli spazi')
