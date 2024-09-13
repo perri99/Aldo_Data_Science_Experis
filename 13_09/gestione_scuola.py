@@ -32,6 +32,45 @@ def crea_tabella(mycursor):
     #mydb.commit()
     print('Creata tabella studenti')
 
+def crea_tabella_admin(mycursor):
+    query = 'CREATE TABLE admin(ID INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255), password VARCHAR(255))'
+    mycursor.execute(query)
+    #mydb.commit()
+    print('Creata tabella admin')
+    query2 = "INSERT INTO admin(username,password) VALUES ('admin','admin')"
+    mycursor.execute(query2)
+    mydb.commit()
+
+def check_username(mycursor, username):
+    query = 'SELECT id from admin where username = %s'
+    mycursor.execute(query, (username,))
+    lista_name = mycursor.fetchall()
+    #print(lista_id)
+    return len(lista_name)
+
+def check_password(mycursor, username, password):
+    query = 'SELECT password from admin where username = %s and password = %s'
+    mycursor.execute(query, (username, password))
+    lista_password = mycursor.fetchall()
+    return len(lista_password)
+
+def login_admin(mycurosr):
+    choice = input("Vuoi accedere come amministratore? si: 's' no: 'n' ")
+    if choice == 's':
+        username = input('Inserisci username:')
+        if check_username(mycurosr, username) == 0:
+            print('Admin non trovato')
+            return False
+        else:
+            password = input('Inserisci password: ')
+            if check_password(mycurosr, username, password) == 0:
+                print('Password errata')
+                return False
+            else:
+                return True
+    else:
+        return False
+
 def show_table(mycursor):
     query = 'select * from studenti' 
     mycursor.execute(query)
