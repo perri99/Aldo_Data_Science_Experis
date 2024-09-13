@@ -40,19 +40,19 @@ def show_table(mycursor):
         print(dato)
     print('Tabella esistente')
     
-def restituisci_id(mycursor):
-    query = 'SELECT id from studenti'
-    mycursor.execute(query)
+def check_id(mycursor, id):
+    query = 'SELECT id from studenti where id = %s'
+    mycursor.execute(query, (id,))
     lista_id = mycursor.fetchall()
-    print(lista_id)
-    return lista_id
+    #print(lista_id)
+    return len(lista_id)
 
 def aggiungi_studente(mycursor):
     query = 'INSERT INTO studenti(id, nome, cognome, media_voti) \
         VALUES (%s, %s, %s, %s)'
     id = int(input('Inserisci ID '))
-    lista_id = restituisci_id(mycursor)
-    if id not in lista_id:
+    #lista_id = restituisci_id(mycursor)
+    if check_id(mycursor, id) == 0:
         nome = input('Inserisci nome: ')
         cognome = input('Inserisci cognome: ')
         media = float(input('Inserisci media: '))
