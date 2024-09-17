@@ -19,12 +19,18 @@ df = pd.DataFrame({'Data': dates,
 
 print('dataframe originale')
 print(df)
+
 #creazione tabella pivot mostrante la media 
 pivot_df = df.pivot_table(values='Vendite', index='Prodotto', columns='Città', aggfunc='mean')
 print('Tabella Pivot')
 print(pivot_df)
+
 #metodo groupby
+df = df.drop_duplicates()
 df_senzadata = df.drop(columns = 'Data')
-grouped_df  = df_senzadata.groupby('Prodotto').sum()
+grouped_df  = df_senzadata.groupby('Prodotto')['Vendite'].sum()
+
+#grouped_df.drop_duplicates()
 print('Risultato di groupby:')
 print(grouped_df)
+
