@@ -25,6 +25,7 @@ model.fit(X_train, y_train)
 predictions_linear = model.predict(X_test)
 error = mean_squared_error(y_test, predictions_linear)
 print('Mean Squared Error linear regression:', error)
+
 #K-Nearest Neighbors (KNN)
 knn = KNeighborsClassifier(n_neighbors=3)
 knn.fit(X_train, y_train)
