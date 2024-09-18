@@ -66,7 +66,7 @@ plt.title('Visitatori Giornalieri con Media Mobile Settimanale')
 plt.legend()
 plt.show()
 #grafico_patologie
-patologie_counts = df['Patologia'].value_counts()  # Ottieni i valori delle patologie
+patologie_counts = df['Patologia'].value_counts()  
 plt.bar(patologie_counts.index, patologie_counts.values, color=['blue', 'green', 'orange'])
 plt.title('Distribuzione delle Patologie')
 plt.xlabel('Tipo di Patologia')
