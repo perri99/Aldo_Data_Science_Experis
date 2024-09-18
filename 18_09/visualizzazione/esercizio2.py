@@ -57,12 +57,16 @@ days = np.arange(0,305)
 # Grafico delle medie mensili
 plt.plot(months, medie_mens, marker = 'o')
 plt.title('Medie mensili')
+plt.xlabel('Giorni')
+plt.ylabel('Visitatori medi')
 plt.show()
 
 # Grafico visitatori giornalieri con media mobile settimanale
 plt.plot(days, visitatori_giornalieri, label='Visitatori Giornalieri', alpha=0.5)
 plt.plot(days, df1['Media Mobile Settimanale'], label='Media Mobile Settimanale (7 giorni)', color='red', linewidth=2)
 plt.title('Visitatori Giornalieri con Media Mobile Settimanale')
+plt.xlabel('Giorni')
+plt.ylabel('Visitatori')
 plt.legend()
 plt.show()
 #grafico_patologie
