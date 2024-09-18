@@ -67,7 +67,9 @@ class PredictorDTC:
 
         # Selezioniamo precision, recall e f1-score
         metrics = df[['precision', 'recall', 'f1-score']].iloc[:-3]  # Escludiamo "accuracy", "macro avg", "weighted avg"
-
+        print('Precision:  Indica la proporzione di predizioni corrette tra tutte le predizioni positive')
+        print('Recall  (Sensibilità): Indica la proporzione di veri positivi che il modello è riuscito a identificare correttamente. ')
+        print('F1-Score: È una media armonica tra precision e recall, e fornisce un bilanciamento tra le due metriche')
         # Creiamo il grafico
         metrics.plot(kind='bar')
         plt.title("Precision, Recall, and F1-Score per Class")
