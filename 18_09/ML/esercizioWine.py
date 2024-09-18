@@ -54,12 +54,10 @@ class PredictorDTC:
     def plot_feature_importance(self):
         # Importanza delle feature
         importances = self.model.feature_importances_
-        print(importances)
         indices = np.argsort(importances)[-5::]
         names = [self.data.feature_names[i] for i in indices]
         plt.title("Feature Importance")
         plt.bar(names, importances[indices])
-        #plt.xticks(range(self.X.shape[1]), names, rotation=90)
         plt.show()
 
     def plot_classification_report(self):
