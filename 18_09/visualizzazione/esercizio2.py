@@ -8,9 +8,9 @@ def genera_dati(media = 2000, dev_std = 500, giorni = 365):
     return data
 
 def modifica_trend(data, incremento = 1, giorni = 365): #trend lineare brutale
-    increments = np.linspace(0,giorni*incremento, giorni)
+    increments = np.linspace(0, giorni*incremento, giorni)
     data = np.add(data, increments) #incremento i dati di incremento * numero di giorni passati da inizio anno
-    data = np.maximum(data, 0)
+    data = np.maximum(data, 300) #imposta il valore minimo
     data = data.astype(int)
     return data
 
@@ -36,19 +36,28 @@ def medie_mensili(dataframe):
 
 #creo array con visitatori giornalieri distribuiti normalmente
 visitatori_giornalieri = genera_dati(media = 1200, dev_std = 900, giorni=305)
+
 #modifico il trend dei dati
 visitatori_giornalieri = modifica_trend(visitatori_giornalieri, incremento=-3, giorni = 305)
+
 #creo il dataframe
 df = serie_temporale(visitatori_giornalieri)
+
 #------calcolo le medie mensili-------------
 medie_mens, deviazioni_mens = medie_mensili(df)
+
+#-------Stampo le medie------------------------
 months = ['Jan','Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct']
 for month in months:
     print(f'Media visitatori mese {month} =', medie_mens[months.index(month)], '+-', deviazioni_mens[months.index(month)])
 #------Cerco la patologia più e meno frequente---------
-print(df['Patologia'].value_counts())
-print('Patologia più frequente:', df['Patologia'].value_counts().idxmax())
-print('Patologia meno frequente:', df['Patologia'].value_counts().idxmin())
+grouped_df = df.groupby('Patologia').sum()
+print(grouped_df)
+print('Patologia più frequente:', grouped_df.idxmax()[0])
+print('Patologia meno frequente:', grouped_df.idxmin()[0])
+
+
+
 #------Media Settimanale-----------------------
 df1 = df.drop(columns='Patologia')
 df1['Media Mobile Settimanale'] = df1['Visitatori'].rolling(window=7).mean()
@@ -62,7 +71,7 @@ plt.ylabel('Visitatori medi')
 plt.show()
 
 # Grafico visitatori giornalieri con media mobile settimanale
-plt.plot(days, visitatori_giornalieri, label='Visitatori Giornalieri', alpha=0.5)
+plt.plot(days, visitatori_giornalieri, label='Visitatori Giornalieri')
 plt.plot(days, df1['Media Mobile Settimanale'], label='Media Mobile Settimanale (7 giorni)', color='red', linewidth=2)
 plt.title('Visitatori Giornalieri con Media Mobile Settimanale')
 plt.xlabel('Giorni')
@@ -70,8 +79,8 @@ plt.ylabel('Visitatori')
 plt.legend()
 plt.show()
 #grafico_patologie
-patologie_counts = df['Patologia'].value_counts()  
-plt.bar(patologie_counts.index, patologie_counts.values, color=['blue', 'green', 'orange'])
+
+plt.bar(grouped_df.index, grouped_df['Visitatori'], color=['blue', 'green', 'orange'])
 plt.title('Distribuzione delle Patologie')
 plt.xlabel('Tipo di Patologia')
 plt.ylabel('Numero di Casi')
