@@ -4,30 +4,42 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
+import seaborn as sns
 
-#carico i dati
-iris_data = load_iris()
-X = iris_data.data  # caratteristiche
-y = iris_data.target  # target
+class PredictorDTC:
 
-# Rescaling
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
+    def __init__(self, data_function):
+        self.data = data_function
+        self.X = self.data.data
+        self.y = self.data.target
+        self.model = DecisionTreeClassifier
 
-#suddivisione dati
-X_train,X_test, y_train, y_test = train_test_split(X_scaled, y, test_size = 0.3, random_state = 42)
+    def scaling_data(self):
+        scaler = StandardScaler()
+        self.X_scaled = scaler.fit_transform(self.X)
+        return self.X_scaled
 
-#scelta del modello
-model = DecisionTreeClassifier()
+    def split_data(self):
+        self.scaling_data()
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.X_scaled, self.y, test_size = 0.3, random_state = 42)
 
-#Addestramento
-model.fit(X_train, y_train)
+    def train_DTC(self):
+        #scelta del modello
+        self.split_data()
+        model = DecisionTreeClassifier()
+        #Addestramento
+        model.fit(self.X_train, self.y_train)
+        return model
 
-#Prediction
-y_pred = model.predict(X_test)
+    def prediction(self):
+        return self.model.predict(self.X_test)
 
+my_model = PredictorDTC(load_iris())
+my_model.train_DTC()
+pred = my_model.prediction()
+'''
 #Accuracy
-performances = classification_report(y_test, y_pred)
+performances = classification_report(y_test, y_pred, target_names = labels)
 print('Classification report:')
 print(performances)
 
@@ -39,3 +51,4 @@ print(matrix)
 visual = ConfusionMatrixDisplay(matrix)
 visual.plot()
 plt.show()
+'''
