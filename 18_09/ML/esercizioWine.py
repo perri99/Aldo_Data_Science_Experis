@@ -21,13 +21,13 @@ class PredictorDTC:
         self.X_scaled = scaler.fit_transform(self.X)
         return self.X_scaled
 
-    def split_data(self):
+    def split_data(self, test_size = 0.3, random_state = 42):
         self.scaling_data()
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.X_scaled, self.y, test_size = 0.3, random_state = 42)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.X_scaled, self.y, test_size = test_size, random_state=random_state)
 
-    def train_DTC(self):
+    def train_DTC(self, test_size = 0.3, random_state = 42):
         #scelta del modello
-        self.split_data()
+        self.split_data(test_size = test_size, random_state=random_state)
         #Addestramento
         self.model.fit(self.X_train, self.y_train)
         #return model
