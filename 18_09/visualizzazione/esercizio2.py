@@ -80,8 +80,8 @@ plt.legend()
 plt.show()
 #grafico_patologie
 
-plt.bar(grouped_df.index, grouped_df['Visitatori'], color=['blue', 'green', 'orange'])
+plt.pie(grouped_df['Visitatori'], labels = grouped_df.index) #color=['blue', 'green', 'orange']
 plt.title('Distribuzione delle Patologie')
-plt.xlabel('Tipo di Patologia')
-plt.ylabel('Numero di Casi')
+#plt.xlabel('Tipo di Patologia')
+#plt.ylabel('Numero di Casi')
 plt.show()
