@@ -33,12 +33,12 @@ def scatter_plot_PCA(X1,X2, target):
     plt.grid(True)
     plt.show()
 
-def scatter_plot(X1,X2, target):
+def scatter_plot(model, X1,X2, target):
     scatter = plt.scatter(X1, X2, c=target )#cmap='tab10', edgecolor='k', s=50
     plt.colorbar(scatter, label='Cifra')
-    plt.title('Visualizzazione dei dati')
-    plt.xlabel('Vero')
-    plt.ylabel('predetto')
+    plt.title(f'Visualizzazione dei dati {type(model).__name__}')
+    plt.xlabel('Cifra Vera')
+    plt.ylabel('Cifra predetta')
     plt.grid(True)
     plt.show()
 
@@ -48,7 +48,7 @@ def prediction(model, X, y):
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-    scatter_plot(y_test, y_pred, y_test)
+    scatter_plot(model, y_test, y_pred, y_test)
     return accuracy
 
 digits = load_digits()
