@@ -34,7 +34,7 @@ def scatter_plot_PCA(X1,X2, target):
     plt.show()
 
 def scatter_plot(model, X1,X2, target):
-    scatter = plt.scatter(X1, X2, c=target )#cmap='tab10', edgecolor='k', s=50
+    scatter = plt.scatter(X1, X2, c=target, cmap='tab10', edgecolor='k', s=50 )#cmap='tab10', edgecolor='k', s=50
     plt.colorbar(scatter, label='Cifra')
     plt.title(f'Visualizzazione dei dati {type(model).__name__}')
     plt.xlabel('Cifra Vera')
