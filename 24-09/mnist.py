@@ -24,10 +24,10 @@ def preprocessing(X_train, y_train, X_test, y_test):
 
     return X_train, y_train, X_test, y_test
 
-def sequential_model():
+def sequential_model(n_dense = 32):
     model = Sequential()
     model.add(Flatten(input_shape=(28, 28)))
-    model.add(Dense(32, activation='relu'))
+    model.add(Dense(n_dense, activation='relu'))
     model.add(Dense(10, activation='softmax'))
     model.compile(optimizer='adam',
                   loss='categorical_crossentropy',
@@ -71,7 +71,7 @@ X_train, y_train, X_test, y_test = preprocessing(X_train, y_train, X_test, y_tes
 
 
 # Creazione del modello sequenziale
-my_model = sequential_model()
+my_model = sequential_model(n_dense = 64)
 
 # Addestramento del modello
 trained_model = train_model(my_model, X_train, y_train, n_epochs= 10)
@@ -91,4 +91,4 @@ print(classification_report(true_classes, predicted_classes))
 
 plot_accuracy(trained_model)
 plot_loss(trained_model)
-
+#view_images()
