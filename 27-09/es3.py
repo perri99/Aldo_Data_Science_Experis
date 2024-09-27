@@ -6,12 +6,6 @@ from keras.layers import Dense, Flatten
 from keras.utils import to_categorical
 from sklearn.metrics import classification_report
 
-def view_images(X_train, y_train):
-        for index in range(5):
-            plt.imshow(X_train[index], cmap='gray')
-            plt.colorbar()
-            plt.title(f"Immagine generata dalla matrice di grigi label {y_train[index]}")
-            plt.show()
 
 def preprocessing(X_train, y_train, X_test, y_test):
     # Normalizzazione dei pixel
@@ -65,7 +59,7 @@ def plot_loss(trained_model):
     plt.show()
 # Caricamento del dataset MNIST
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
-view_images(X_train, y_train)
+
 # Preprocessing dei dati
 X_train, y_train, X_test, y_test = preprocessing(X_train, y_train, X_test, y_test)
 
@@ -91,4 +85,4 @@ print(classification_report(true_classes, predicted_classes))
 
 plot_accuracy(trained_model)
 plot_loss(trained_model)
-#view_images()
+
