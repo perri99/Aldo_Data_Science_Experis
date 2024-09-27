@@ -6,6 +6,9 @@ class Libro:
        self.autore = autore
        self.anno = anno
     
+    def descrivi_libro(self):
+        print('Il titolo del libro è', self.titolo, 'scritto da', self.autore, 'nel', self.anno)
+
     def get_titolo(self):
         return self.titolo
     
@@ -23,7 +26,7 @@ class Libreria:
         self.archivio_libri = {'Autore':[],
                                             'Titolo': [],
                                             'Anno':[],
-                                            'Qauntità':[]}
+                                            'Quantità':[]}
 
 
     def aggiungi_libro(self, Libro, quantità):
@@ -31,16 +34,19 @@ class Libreria:
         self.archivio_libri['Titolo'].append(Libro.get_titolo())
         self.archivio_libri['Anno'].append(Libro.get_anno())
         self.archivio_libri['Quantità'].append(quantità)
+        self.dataframe = pd.DataFrame(self.archivio_libri)
         return Libro
     
+    def trova_libro(self, titolo):
+        if titolo in self.dataframe['Titolo'].values:
+            print('Libro Trovato')
+
     def mostra_libro(self, Libro):
         Libro.descrivi_libro()
 
-    def aggiungi_libro(self, Libro):
-        self.archivio_libri.append(Libro)
 
     def mostra_archivio(self):
-        print(self.archivio_libri)
+        print(pd.DataFrame(self.archivio_libri))
 
 
 Ulisse = Libro('Joyce', 'Ulisse', '1960')
@@ -49,3 +55,4 @@ Lib = Libreria()
 Lib.aggiungi_libro(Ulisse, 7)
 Lib.aggiungi_libro(Ulisse, 7)
 Lib.mostra_archivio()
+Lib.trova_libro('Ulisse')
